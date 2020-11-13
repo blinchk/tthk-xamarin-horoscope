@@ -3,12 +3,12 @@ using Xamarin.Forms;
 
 namespace tthk_xamarin_horoscope.Models
 {
-    class ZodiacSign
+    public class ZodiacSign 
     {
         string title;
         string description;
-        TimeSpan startDate;
-        TimeSpan endDate;
+        DateTime startDate;
+        DateTime endDate;
         ImageSource picture;
 
         public string Title
@@ -23,13 +23,13 @@ namespace tthk_xamarin_horoscope.Models
             set => description = value;
         }
 
-        public TimeSpan StartDate
+        public DateTime StartDate
         {
             get => startDate;
             set => startDate = value;
         }
 
-        public TimeSpan EndDate
+        public DateTime EndDate
         {
             get => endDate;
             set => endDate = value;

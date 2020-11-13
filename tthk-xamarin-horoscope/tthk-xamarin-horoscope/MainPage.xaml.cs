@@ -12,6 +12,7 @@ namespace tthk_xamarin_horoscope
     {
         public MainPage()
         {
+            
             InitializeComponent();
         }
     }

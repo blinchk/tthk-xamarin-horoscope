@@ -4,7 +4,10 @@
              x:Class="tthk_xamarin_horoscope.MainPage">
 
     <StackLayout>
-        <Picker ItemsSource=""/>
+        <Picker x:Name="zodiacSignPicker" ItemsSource=""/>
+        <DatePicker x:Name="zodiacSignDatePicker" Format="dd.MM.yyyy"/>
+        <Label x:Name="zodiacSignTitleLabel" Text="Название"/>
+        <Label x:Name="zodiacSignDescriptionLabel" Text="Описание"/>
     </StackLayout>  
 
 </ContentPage>
