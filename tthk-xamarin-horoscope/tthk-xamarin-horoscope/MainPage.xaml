@@ -5,8 +5,13 @@
 
     <ScrollView>
         <StackLayout>
-            <Picker x:Name="zodiacSignPicker"/>
-            <DatePicker x:Name="zodiacSignDatePicker" Format="dd.MM.yyyy"/>
+            <StackLayout Orientation="Horizontal">
+                <Picker x:Name="zodiacSignPicker"
+                        HorizontalOptions="FillAndExpand"/>
+                <DatePicker x:Name="zodiacSignDatePicker" Format="dd MMMM yyyy"
+                        HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            
             <Image x:Name="zodiacSignImage" HeightRequest="200"></Image>
             <Label x:Name="zodiacSignTitleLabel" 
                    Text="Название" 
