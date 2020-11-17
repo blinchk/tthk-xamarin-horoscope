@@ -6,8 +6,16 @@
     <StackLayout>
         <Picker x:Name="zodiacSignPicker"/>
         <DatePicker x:Name="zodiacSignDatePicker" Format="dd.MM.yyyy"/>
-        <Label x:Name="zodiacSignTitleLabel" Text="Название"/>
-        <Label x:Name="zodiacSignDescriptionLabel" Text="Описание"/>
+        <Image x:Name="zodiacSignImage" HeightRequest="200"></Image>
+        <Label x:Name="zodiacSignTitleLabel" 
+               Text="Название" 
+               HorizontalTextAlignment="Center"
+               FontSize="40"/>
+        <Label x:Name="zodiacSignDateLabel"
+               HorizontalTextAlignment="Center"/>
+        <Label x:Name="zodiacSignDescriptionLabel" 
+               Text="Описание" 
+               HorizontalTextAlignment="Center"/>
     </StackLayout>  
 
 </ContentPage>
