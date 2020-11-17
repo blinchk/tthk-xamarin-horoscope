@@ -3,19 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="tthk_xamarin_horoscope.MainPage">
 
-    <StackLayout>
-        <Picker x:Name="zodiacSignPicker"/>
-        <DatePicker x:Name="zodiacSignDatePicker" Format="dd.MM.yyyy"/>
-        <Image x:Name="zodiacSignImage" HeightRequest="200"></Image>
-        <Label x:Name="zodiacSignTitleLabel" 
-               Text="Название" 
-               HorizontalTextAlignment="Center"
-               FontSize="40"/>
-        <Label x:Name="zodiacSignDateLabel"
-               HorizontalTextAlignment="Center"/>
-        <Label x:Name="zodiacSignDescriptionLabel" 
-               Text="Описание" 
-               HorizontalTextAlignment="Center"/>
-    </StackLayout>  
+    <ScrollView>
+        <StackLayout>
+            <Picker x:Name="zodiacSignPicker"/>
+            <DatePicker x:Name="zodiacSignDatePicker" Format="dd.MM.yyyy"/>
+            <Image x:Name="zodiacSignImage" HeightRequest="200"></Image>
+            <Label x:Name="zodiacSignTitleLabel" 
+                   Text="Название" 
+                   HorizontalTextAlignment="Center"
+                   FontSize="40"/>
+            <Label x:Name="zodiacSignDateLabel"
+                   HorizontalTextAlignment="Center"/>
+            <Label x:Name="zodiacSignDescriptionLabel" 
+                   Text="Описание" 
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

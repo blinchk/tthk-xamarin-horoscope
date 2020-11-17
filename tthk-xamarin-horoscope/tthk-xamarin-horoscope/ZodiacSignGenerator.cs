@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Reflection;
 using System.Text;
 using tthk_xamarin_horoscope.Models;
@@ -51,7 +52,7 @@ namespace tthk_xamarin_horoscope
         {
             using (WebClient client = new WebClient())
             {
-                string s = client.DownloadString(url);
+                return client.DownloadString("https://raw.githubusercontent.com/blinchk/tthk-xamarin-horoscope/master/tthk-xamarin-horoscope/tthk-xamarin-horoscope/Descriptions/" + zodiacSignsPaths[index] + ".txt");
             };
         }
     }
