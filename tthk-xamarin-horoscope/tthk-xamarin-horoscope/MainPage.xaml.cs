@@ -23,10 +23,46 @@ namespace tthk_xamarin_horoscope
             zodiacSignPicker.ItemsSource = zodiacSigns.Select(zs => zs.Title).ToArray(); // Get zodiac signs' names using Linq
             zodiacSignPicker.SelectedIndexChanged += ZodiacSignPicker_SelectedIndexChanged;
             zodiacSignDatePicker.DateSelected += ZodiacSignDatePicker_DateSelected;
-            int todayZodiacSignIndex = GetZodiacSignIndexByDate(DateTime.Today);
+            int todayZodiacSignIndex = GetZodiacSignIndexByDate(new DateTime(2003, 9, 3));
             DisplayZodiacSignInfo(todayZodiacSignIndex);
-            zodiacSignDatePicker.Date = DateTime.Today;
             zodiacSignPicker.SelectedIndex = todayZodiacSignIndex;
+            zodiacSignDatePicker.Date = new DateTime(2003, 9, 3);
+            SwipeGestureRecognizer swipeLeft = new SwipeGestureRecognizer() { Direction = SwipeDirection.Left, Threshold = 15 };
+            SwipeGestureRecognizer swipeRight = new SwipeGestureRecognizer() { Direction = SwipeDirection.Right, Threshold = 15 };
+            swipeLeft.Swiped += SwipeLeft_Swiped;
+            swipeRight.Swiped += SwipeRight_Swiped;
+            mainLayout.GestureRecognizers.Add(swipeLeft);
+            mainLayout.GestureRecognizers.Add(swipeRight);
+        }
+
+        private async void LaunchLayoutAnimation()
+        {
+            await zodiacSignImage.FadeTo(0, 1);
+            await animationLayout.TranslateTo(0, 0, 500, Easing.SinInOut);
+            await zodiacSignImage.FadeTo(100, 250);
+            await zodiacSignImage.TranslateTo(0, 0, 500, Easing.CubicInOut);
+        }
+
+        private void SwipeRight_Swiped(object sender, SwipedEventArgs e)
+        {
+            if (zodiacSignPicker.SelectedIndex > 0)
+            {
+                animationLayout.TranslationX = -300;
+                zodiacSignImage.TranslationX = 300;
+                LaunchLayoutAnimation();
+                zodiacSignPicker.SelectedIndex--;
+            }
+        }
+
+        private void SwipeLeft_Swiped(object sender, SwipedEventArgs e)
+        {
+            if (zodiacSignPicker.SelectedIndex < 11)
+            {
+                animationLayout.TranslationX = 300;
+                zodiacSignImage.TranslationX = -300;
+                LaunchLayoutAnimation();
+                zodiacSignPicker.SelectedIndex++;
+            }
         }
 
         private void ZodiacSignDatePicker_DateSelected(object sender, DateChangedEventArgs e)

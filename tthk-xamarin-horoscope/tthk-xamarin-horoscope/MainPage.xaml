@@ -3,26 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="tthk_xamarin_horoscope.MainPage">
 
-    <ScrollView>
-        <StackLayout>
-            <StackLayout Orientation="Horizontal">
-                <Picker x:Name="zodiacSignPicker"
-                        HorizontalOptions="FillAndExpand"/>
-                <DatePicker x:Name="zodiacSignDatePicker" Format="dd MMMM yyyy"
-                        HorizontalOptions="FillAndExpand"/>
-            </StackLayout>
-            
+    
+    <StackLayout x:Name="mainLayout"  Margin="15">
+        <StackLayout Orientation="Horizontal">
+            <Picker x:Name="zodiacSignPicker"
+                    HorizontalOptions="FillAndExpand"/>
+            <DatePicker x:Name="zodiacSignDatePicker" Format="dd MMMM yyyy"
+                    HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+        <StackLayout x:Name="animationLayout">
             <Image x:Name="zodiacSignImage" HeightRequest="200"></Image>
             <Label x:Name="zodiacSignTitleLabel" 
-                   Text="Название" 
-                   HorizontalTextAlignment="Center"
-                   FontSize="40"/>
+                    Text="Название" 
+                    HorizontalTextAlignment="Center"
+                    FontSize="40"/>
             <Label x:Name="zodiacSignDateLabel"
-                   HorizontalTextAlignment="Center"/>
-            <Label x:Name="zodiacSignDescriptionLabel" 
-                   Text="Описание" 
-                   HorizontalTextAlignment="Center"/>
+                    HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            <ScrollView x:Name="descriptionScrollView">
+                <Label x:Name="zodiacSignDescriptionLabel" 
+                        Text="Описание" 
+                        HorizontalTextAlignment="Center"/>
+            </ScrollView>
         </StackLayout>
-    </ScrollView>
+    </StackLayout>
+    
 
 </ContentPage>
