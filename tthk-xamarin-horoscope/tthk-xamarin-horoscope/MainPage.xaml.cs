@@ -11,8 +11,7 @@ namespace tthk_xamarin_horoscope
     public partial class MainPage : ContentPage
     {
         public MainPage()
-        {
-            
+        { 
             InitializeComponent();
         }
     }

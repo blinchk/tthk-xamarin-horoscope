@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using tthk_xamarin_horoscope.Models;
 using Xamarin.Forms;
@@ -10,11 +11,12 @@ namespace tthk_xamarin_horoscope
     {
         public static List<ZodiacSign> zodiacSigns;
         static string[] zodiacSignsTitles = new string[] { "Козерог", "Водолей", "Рыбы", "Овен", "Телец", "Близнецы", "Рак", "Лев", "Дева", "Весы", "Скорпион", "Стрелец" };
-        static ImageSource[] zodiacSignsPictures = new ImageSource[] { 
-            "1_capricorn.png", "2_aquarius.png", "3_pisces.png", 
-            "4_aries.png", "5_taurus.png", "6_gemini.png", 
-            "7_cancer.png", "8_leo.png", "9_virgo.png",
-            "10_libra.png", "11_scorpio.png", "12_sagitarrius.png"
+        static string[] zodiacSignsStartDateStrings = new string[] { "22.12", "21.01", "19.02", "21.03", "20.04", "21.05", "22.06", "23.07", "23.08", "23.09", "24.10", "23.11" };
+        static string[] zodiacSignsPicturesPaths = new string[] { 
+            "capricorn.png", "aquarius.png", "pisces.png", 
+            "aries.png", "taurus.png", "gemini.png", 
+            "cancer.png", "leo.png", "virgo.png",
+            "libra.png", "scorpio.png", "sagitarrius.png"
         };
 
         private void LoadZodiacSignsDescriptonsFromFile()
@@ -25,15 +27,23 @@ namespace tthk_xamarin_horoscope
         public static List<ZodiacSign> GetZodiacSigns()
         {
             zodiacSigns = new List<ZodiacSign>();
+            
+            var ci = new CultureInfo("et-EE");
             for (int i = 0; i < 12; i++)
             {
+                DateTime endDate;
+                DateTime startDate = DateTime.ParseExact(zodiacSignsStartDateStrings[i], @"dd.MM", ci);
+                if (i == 11)
+                    endDate = DateTime.ParseExact(zodiacSignsStartDateStrings[i+1], @"dd.MM", ci) - TimeSpan.FromDays(1);
+                else
+                    endDate = DateTime.ParseExact(zodiacSignsStartDateStrings[0], @"dd.MM", ci) - TimeSpan.FromDays(1);
                 ZodiacSign zodiacSign = new ZodiacSign()
                 {
                     Title = zodiacSignsTitles[i],
                     Description = "",
-                    StartDate = new DateTime(2000, 10, 10),
-                    EndDate = new DateTime(2000, 10, 10), // TODO: Fill DateTimes to array or file
-                    Picture = zodiacSignsPictures[i]
+                    StartDate = startDate,
+                    EndDate = endDate, // TODO: Fill DateTimes to array or file
+                    Picture = ImageSource.FromFile(zodiacSignsPicturesPaths[i])
                 };
             }
             return zodiacSigns;

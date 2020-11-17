@@ -85,7 +85,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\aquarius.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\tthk-xamarin-horoscope\tthk-xamarin-horoscope.csproj">
       <Project>{9D7DBC0D-B56F-4383-9C51-9BEA89D118FD}</Project>
@@ -93,40 +95,37 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\4_aries.png" />
+    <AndroidResource Include="Resources\drawable\aries.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\5_taurus.png" />
+    <AndroidResource Include="Resources\drawable\cancer.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\6_gemini.png" />
+    <AndroidResource Include="Resources\drawable\capricorn.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\7_cancer.png" />
+    <AndroidResource Include="Resources\drawable\gemini.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\8_leo.png" />
+    <AndroidResource Include="Resources\drawable\leo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\9_virgo.png" />
+    <AndroidResource Include="Resources\drawable\libra.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\10_libra.png" />
+    <AndroidResource Include="Resources\drawable\pisces.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\11_scorpio.png" />
+    <AndroidResource Include="Resources\drawable\sagittarius.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\12_sagittarius.png" />
+    <AndroidResource Include="Resources\drawable\scorpio.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\1_capricorn.png" />
+    <AndroidResource Include="Resources\drawable\taurus.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\2_aquarius.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\drawable\3_pisces.png" />
+    <AndroidResource Include="Resources\drawable\virgo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
